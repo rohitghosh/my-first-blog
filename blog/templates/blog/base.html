@@ -9,6 +9,9 @@
     </head>
     <body>
         <div class= "page-header">
+        {% if user.is_authenticated %}
+            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        {% endif %}
             <h1><a href="">Decision Science Blog</a></h1>
             <p> <em>This blog is all about Decision Science.</br>The idea is to decode how our brains work and gain an insight into our brain's decisiosn so that we can interpret and more importantly, influenece decisions</em></p>
         </div>
