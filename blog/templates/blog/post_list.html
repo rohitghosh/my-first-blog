@@ -1,19 +1,16 @@
-<html>
-    <head>
-        <title>Decision Science blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">Decision Science Blog</a></h1>
-            <p> This blog is all about Decsiosn Science.</br>The idea is to decode how our brains work and gain an insight into our brain's decisiosn so that we can interpret and more importantly, influenece decisions</p>
-        </div>
 
-       {% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaks }}</p>
+
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+ {% for post in posts %}
+     <div class="post">
+         <div class="date">
+                <p>published: {{ post.published_date }}</p>
+            </div>
+                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaks }}</p>
     </div>
-{% endfor %}
-    </body>
-</html>
+ {% endfor %}
+{% endblock %}
